@@ -1,0 +1,391 @@
+/* ================================
+   General Reset & Typography
+================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  background: linear-gradient(135deg, #f9f9f9, #f1f1f1);
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ================================
+   Sidebar
+================================= */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: rgba(128, 0, 0, 0.95); /* maroon */
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 25px 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+}
+/* ================================
+   Base Light Theme (default)
+================================= */
+:root {
+  --bg: linear-gradient(135deg, #f9f9f9, #f1f1f1);
+  --sidebar-bg: rgba(128, 0, 0, 0.95);
+  --sidebar-text: #fff;
+  --sidebar-active: rgba(255, 215, 0, 0.2);
+  --text: #333;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-title: maroon;
+  --accent: #FFD700;
+  --btn-bg: maroon;
+  --btn-text: white;
+  --btn-hover-bg: #FFD700;
+  --btn-hover-text: black;
+}
+
+/* ================================
+   Dark Theme
+================================= */
+body.dark {
+  --bg: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+  --sidebar-bg: rgba(40, 0, 0, 0.95);
+  --sidebar-text: #eee;
+  --sidebar-active: rgba(255, 215, 0, 0.15);
+  --text: #ddd;
+  --card-bg: rgba(40, 40, 40, 0.85);
+  --card-title: #FFD700;
+  --accent: #FFD700;
+  --btn-bg: #FFD700;
+  --btn-text: black;
+  --btn-hover-bg: maroon;
+  --btn-hover-text: white;
+}
+
+/* ================================
+   Apply Theme Variables
+================================= */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Sidebar */
+.sidebar {
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+}
+
+.menu li:hover,
+.menu li.active {
+  background: var(--sidebar-active);
+  border-left: 5px solid var(--accent);
+}
+
+.logout-link {
+  color: var(--sidebar-text);
+}
+
+/* Topbar */
+.topbar {
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+}
+
+.card h3 {
+  color: var(--card-title);
+}
+
+/* Profile Form */
+.card.profile input[type="text"],
+.card.profile input[type="email"],
+.card.profile input[type="file"] {
+  border: 1px solid #aaa;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center; align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 450px;
+  max-width: 90%;
+  animation: fadeIn 0.3s ease;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px; right: 16px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tab-btn.active {
+  background: maroon;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.btn-save {
+  margin-top: 12px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: maroon;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-save:hover {
+  background: gold;
+  color: black;
+}
+
+.btn-save {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+.btn-save:hover {
+  background: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar-header .logo {
+  width: 70px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.sidebar-header h2 {
+  color: #FFD700; /* gold */
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.menu {
+  list-style: none;
+  flex: 1;
+}
+
+.menu li {
+  padding: 15px 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+.menu li i {
+  margin-right: 12px;
+  width: 20px;
+}
+
+.menu li:hover,
+.menu li.active {
+  background: rgba(255, 215, 0, 0.2);
+  border-left: 5px solid #FFD700;
+}
+
+.logout-link {
+  color: white;
+  text-decoration: none;
+}
+
+/* ================================
+   Main Content & Topbar
+================================= */
+.main-content {
+  margin-left: 250px;
+  flex: 1;
+  padding: 25px;
+}
+
+.topbar {
+  background: white;
+  padding: 15px 25px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.message-timestamp {
+    text-align: right;
+    margin-top: 3px;
+}
+.message-bubble {
+    display: flex;
+    flex-direction: column;
+}
+.message-bubble.received {
+    align-self: flex-start;
+}
+.message-bubble.sent {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #FFD700;
+}
+
+.username {
+  font-weight: 600;
+}
+
+/* ================================
+   Dashboard Cards
+================================= */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: maroon;
+}
+
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.card ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  border-left: 3px solid #FFD700;
+  padding-left: 8px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* ================================
+   Profile Section Form
+================================= */
+.card.profile form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card.profile label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+}
+
+.card.profile input[type="text"],
+.card.profile input[type="email"],
+.card.profile input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.btn-save {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: maroon;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.btn-save:hover {
+  background: #FFD700;
+  color: black;
+  font-weight: 600;
+}

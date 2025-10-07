@@ -1,0 +1,151 @@
+/* ---------------- Profile Modal ---------------- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  width: 450px;
+  max-width: 90%;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #800000;
+  transition: 0.3s;
+}
+.close-btn:hover {
+  color: #FFD700;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.tab-btn {
+  flex: 1;
+  padding: 10px 0;
+  background: #f3f3f3;
+  border: none;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  font-weight: bold;
+  color: #800000;
+  transition: 0.3s;
+}
+.tab-btn.active {
+  background: #800000;
+  color: #FFD700;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(128,0,0,0.3);
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* Forms */
+.modal-content label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 600;
+  color: #800000;
+}
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="password"],
+.modal-content input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #800000;
+  outline: none;
+  transition: 0.3s;
+}
+.modal-content input:focus {
+  border-color: #FFD700;
+  box-shadow: 0 0 8px rgba(255,215,0,0.3);
+}
+
+/* Buttons */
+.btn-save {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #800000;
+  color: #FFD700;
+  font-size: 1em;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn-save:hover {
+  background: #660000;
+  color: #fff;
+}
+
+/* Profile Avatar Preview */
+.profile-preview img {
+  margin-top: 10px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #FFD700;
+}
+
+/* Password Toggle */
+.password-wrapper {
+  position: relative;
+}
+.password-wrapper .toggle-pass {
+  position: absolute;
+  right: 10px; top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 0.85em;
+  color: #800000;
+  transition: 0.3s;
+}
+.password-wrapper .toggle-pass:hover {
+  color: #FFD700;
+}
+
+/* Snackbar / Messages */
+.message {
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  display: none;
+}
+.message.success { background: #fff4e5; color: #0d0080; }
+.message.error { background: #ffe5e5; color: #800000; }
+
+/* Animations */
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }

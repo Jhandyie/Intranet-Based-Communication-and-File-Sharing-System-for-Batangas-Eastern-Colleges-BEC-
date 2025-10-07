@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEC Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <!-- Background -->
+  <div class="background"></div>
+
+  <!-- Login Form Container -->
+  <div class="form-container">
+    <!-- Logo -->
+    <img src="assets image/logo.png" alt="Batangas Eastern Colleges Logo" class="school-logo">
+
+    <div id="notice-container"></div>
+
+    <!-- Tabs for User Roles -->
+    <div class="tabs">
+      <button class="tab active" onclick="showForm(event, 'student')">Student</button>
+<button class="tab" onclick="showForm(event, 'teacher')">Teacher</button>
+<button class="tab" onclick="showForm(event, 'admin')">Admin</button>
+    </div>
+
+    <!-- Student Login Form -->
+    <form id="student-form" class="form active" action="login.php" method="POST">
+  <h2>Hi Student, Welcome Back!</h2>
+  <input type="hidden" name="role" value="student">
+  <input type="text" name="id_number" placeholder="Student ID" required>
+  <div class="password-container">
+    <input type="password" name="password" placeholder="Password" id="student-pass" required>
+  </div>
+   <a href="#" class="forgot-password">Forgot Password</a>
+  <button type="submit" class="btn">Sign In</button>
+  <p class="signup-link">Don’t have an account? <a href="#" onclick="showSignup('student')">Sign Up</a></p>
+</form>
+
+    <!-- Teacher Login Form -->
+    <form id="teacher-form" class="form" action="login.php" method="POST">
+      <h2>Hi Teacher, Welcome Back!</h2>
+      <input type="hidden" name="role" value="teacher">
+      <input type="text" name="teacher_id" placeholder="Teacher ID" required>
+      <div class="password-container">
+        <input type="password" name="password" placeholder="Password" id="teacher-pass" required>
+      </div>
+      <a href="#" class="forgot-password">Forgot Password</a>
+      <button type="submit" class="btn">Sign In</button>
+      <p class="signup-link">Don’t have an account? <a href="#" onclick="showSignup('teacher')">Sign Up</a></p>
+    </form>
+
+    <!-- Admin Login Form -->
+<form id="admin-form" class="form" action="login.php" method="POST">
+  <h2>Admin Login</h2>
+  <input type="hidden" name="role" value="admin">
+  <input type="text" name="id_number" placeholder="Admin Username" required>
+  <div class="password-container">
+    <input type="password" name="password" placeholder="Password" id="admin-pass" required>
+  </div>
+  <button type="submit" class="btn">Sign In</button>
+</form>
+
+
+    <!-- Sign Up Form (Student/Teacher) -->
+<form id="signup-form" class="form" action="register.php" method="POST">
+  <h2 id="signup-title">Sign Up</h2>
+  <input type="hidden" name="role" id="signup-role" value="student">
+  <input type="text" name="fullname" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="text" name="id_number" placeholder="Student/Teacher/Admin ID" required>
+  <div class="password-container">
+    <input type="password" name="password" placeholder="Password" id="signup-pass" required>
+  </div>
+  <button type="submit" class="btn">Create Account</button>
+  <p class="signup-link"><a href="#" onclick="goBack()">⬅ Back to Login</a></p>
+</form>
+
+  <script>
+    function togglePassword(fieldId) {
+      const passwordField = document.getElementById(fieldId);
+      passwordField.type = (passwordField.type === "password") ? "text" : "password";
+    }
+
+ function showForm(event, role) {
+  document.querySelectorAll(".form").forEach(f => f.classList.remove("active"));
+  document.getElementById(role + "-form").classList.add("active");
+
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  event.target.classList.add("active");
+}
+
+
+    function showSignup(role) {
+      document.querySelectorAll(".form").forEach(f => f.classList.remove("active"));
+      document.getElementById("signup-form").classList.add("active");
+      document.getElementById("signup-title").innerText = role.charAt(0).toUpperCase() + role.slice(1) + " Sign Up";
+      document.getElementById("signup-role").value = role;
+    }
+
+    function goBack() {
+      document.querySelectorAll(".form").forEach(f => f.classList.remove("active"));
+      document.getElementById("student-form").classList.add("active");
+      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+      document.querySelector(".tab").classList.add("active");
+    }
+
+    document.getElementById('profile_picture').addEventListener('change', function(e){
+    const file = e.target.files[0];
+    if(file){
+        const reader = new FileReader();
+        reader.onload = () => document.getElementById('avatarPreview').src = reader.result;
+        reader.readAsDataURL(file);
+    }
+});
+const form = document.getElementById('passwordForm');
+form.addEventListener('submit', (e) => {
+    const current = form.current_password.value.trim();
+    const newP = form.new_password.value.trim();
+    const confirm = form.confirm_password.value.trim();
+
+    if(newP.length < 6){
+        e.preventDefault();
+        showError("Password must be at least 6 characters.");
+    } else if(newP !== confirm){
+        e.preventDefault();
+        showError("Passwords do not match.");
+    }
+});
+document.querySelectorAll('.toggle-pass').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const input = btn.previousElementSibling;
+        input.type = input.type === 'password' ? 'text' : 'password';
+    });
+});
+
+
+  </script>
+</body>
+</html>

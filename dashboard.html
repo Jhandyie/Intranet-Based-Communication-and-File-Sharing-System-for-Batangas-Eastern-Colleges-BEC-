@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEC Intranet - Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="logo2.png" alt="BEC Logo" class="logo">
+      <h2>BEC</h2>
+    </div>
+    <ul class="menu">
+      <li class="active"><i class="fas fa-home"></i> Dashboard</li>
+      <li><i class="fas fa-comment-dots"></i> Messages</li>
+      <li><i class="fas fa-chalkboard-teacher"></i> Classes</li>
+      <li><i class="fas fa-folder"></i> BEC Drive</li>
+      <li><i class="fas fa-bell"></i> Notifications</li>
+      <li><i class="fas fa-cog"></i> Settings</li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="user-profile">
+        <img src="user.png" alt="User" class="avatar">
+        <span class="username">Student</span>
+        <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+    </header>
+
+    <!-- Dashboard Cards -->
+    <section class="dashboard-cards">
+      <div class="card announcements">
+        <h3><i class="fas fa-bullhorn"></i> Announcements</h3>
+        <p>No new announcements.</p>
+      </div>
+
+      <div class="card messages">
+        <h3><i class="fas fa-envelope"></i> New Messages</h3>
+        <p>You have 3 new messages.</p>
+      </div>
+
+      <div class="card files">
+        <h3><i class="fas fa-file-alt"></i> Recent Files Shared</h3>
+        <p>No files uploaded yet.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

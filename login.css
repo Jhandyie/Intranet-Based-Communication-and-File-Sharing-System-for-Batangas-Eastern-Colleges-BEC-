@@ -1,0 +1,179 @@
+/* General */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Background */
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("bec background (2).png") no-repeat center center/cover;
+  filter: blur(6px) brightness(0.8);
+  z-index: -1;
+}
+
+/* Form container */
+.form-container {
+  background: rgba(255,255,255,0.9);
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+ /* Keyword value */
+backdrop-filter: none;
+
+/* URL to SVG filter */
+backdrop-filter: url("common-filters.svg#filter");
+
+/* <filter-function> values */
+backdrop-filter: blur(2px);
+backdrop-filter: brightness(60%);
+backdrop-filter: contrast(40%);
+backdrop-filter: drop-shadow(4px 4px 10px blue);
+backdrop-filter: grayscale(30%);
+backdrop-filter: hue-rotate(120deg);
+backdrop-filter: invert(70%);
+backdrop-filter: opacity(20%);
+backdrop-filter: sepia(90%);
+backdrop-filter: saturate(80%);
+
+/* Multiple filters */
+-webkit-backdrop-filter: url("filters.svg#filter") blur(4px) saturate(150%);
+backdrop-filter: url("filters.svg#filter") blur(4px) saturate(150%);
+
+/* Global values */
+backdrop-filter: inherit;
+backdrop-filter: initial;
+backdrop-filter: revert;
+backdrop-filter: revert-layer;
+backdrop-filter: unset;
+}
+
+/* Logo */
+.school-logo {
+  width: 100px;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeBounce 3.5s ease forwards;
+}
+/* Logo animation */ 
+.school-logo {
+  width: 100px;
+  margin-bottom: 15px;
+  opacity: 0;
+  animation: fadeBounce 3.5s ease forwards;
+}
+@keyframes fadeBounce {
+  0% { opacity: 0; transform: translateY(-30px); }
+  50% { opacity: 0.6; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.tab {
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  background: #eee;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.tab.active {
+  background: #a30000;
+  color: white;
+  font-weight: bold;
+}
+
+/* Forms */
+.form {
+  display: none;
+  animation: slideUp 0.6s ease;
+}
+.form.active {
+  display: block;
+}
+
+/* Headings */
+h2 {
+  margin: 10px 0;
+  color: #a30000;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+input:focus {
+  border-color: #a30000;
+  box-shadow: 0 0 5px rgba(163,0,0,0.5);
+}
+
+/* Password container */
+.password-container {
+  position: relative;
+}
+.password-container .toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Forgot password & links */
+.forgot-password {
+  display: block;
+  margin: 10px 0;
+  color: #a30000;
+  font-size: 14px;
+  text-decoration: none;
+}
+.forgot-password:hover {
+  text-decoration: underline;
+}
+.signup-link {
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+/* Button */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #a30000;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #7a0000;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
